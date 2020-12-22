@@ -1,0 +1,13 @@
+C:\Users\BENCE\source\repos\erettsegi\erettsegi\bin\Debug\netcoreapp3.1\erettsegi.exe
+C:\Users\BENCE\source\repos\erettsegi\erettsegi\bin\Debug\netcoreapp3.1\erettsegi.deps.json
+C:\Users\BENCE\source\repos\erettsegi\erettsegi\bin\Debug\netcoreapp3.1\erettsegi.runtimeconfig.json
+C:\Users\BENCE\source\repos\erettsegi\erettsegi\bin\Debug\netcoreapp3.1\erettsegi.runtimeconfig.dev.json
+C:\Users\BENCE\source\repos\erettsegi\erettsegi\bin\Debug\netcoreapp3.1\erettsegi.dll
+C:\Users\BENCE\source\repos\erettsegi\erettsegi\bin\Debug\netcoreapp3.1\erettsegi.pdb
+C:\Users\BENCE\source\repos\erettsegi\erettsegi\obj\Debug\netcoreapp3.1\erettsegi.csprojAssemblyReference.cache
+C:\Users\BENCE\source\repos\erettsegi\erettsegi\obj\Debug\netcoreapp3.1\erettsegi.AssemblyInfoInputs.cache
+C:\Users\BENCE\source\repos\erettsegi\erettsegi\obj\Debug\netcoreapp3.1\erettsegi.AssemblyInfo.cs
+C:\Users\BENCE\source\repos\erettsegi\erettsegi\obj\Debug\netcoreapp3.1\erettsegi.csproj.CoreCompileInputs.cache
+C:\Users\BENCE\source\repos\erettsegi\erettsegi\obj\Debug\netcoreapp3.1\erettsegi.dll
+C:\Users\BENCE\source\repos\erettsegi\erettsegi\obj\Debug\netcoreapp3.1\erettsegi.pdb
+C:\Users\BENCE\source\repos\erettsegi\erettsegi\obj\Debug\netcoreapp3.1\erettsegi.genruntimeconfig.cache

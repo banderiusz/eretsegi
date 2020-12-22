@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\BENCE\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\BENCE\\.nuget\\packages"
+    ]
+  }
+}
