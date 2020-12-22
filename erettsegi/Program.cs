@@ -24,9 +24,12 @@ namespace erettsegi
         public static List<Adat> adatok = new List<Adat>();
         static void Main(string[] args)
         {
-            //beolvas();
+            beolvas();
             //masodik();
-            
+            //TimeSpan otora = new TimeSpan(5, 0, 0);   
+            //TimeSpan ketoraa = new TimeSpan(2, 0, 0);
+            //Console.WriteLine(otora.Hours);
+            harmadik();
         }
 
         public static void beolvas()
@@ -79,6 +82,33 @@ namespace erettsegi
             }
 
             Console.WriteLine($"Az utolsó mérési adat a megadott településről {max.ido.Hours}:{max.ido.Minutes} - kor érkezett.");
+        }
+
+        public static void harmadik()
+        {
+            Console.WriteLine("\n 3.) feladat");
+            Adat max = adatok[0];
+
+            foreach (Adat item in adatok)
+            {
+                if (item.homerseklet > max.homerseklet)
+                {
+                    max = item;   
+                }
+            }
+
+            Adat min = adatok[0];
+
+            foreach (Adat item in adatok)
+            {
+                if (item.homerseklet < min.homerseklet)
+                {
+                    min = item;
+                }
+            }
+
+            Console.WriteLine($"min: {min}");
+            Console.WriteLine($"max: {max}");
         }
 
         public static TimeSpan convertStringToTimestamp(string szoveg) // 0000
