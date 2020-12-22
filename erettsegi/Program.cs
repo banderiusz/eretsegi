@@ -24,11 +24,9 @@ namespace erettsegi
         public static List<Adat> adatok = new List<Adat>();
         static void Main(string[] args)
         {
-            beolvas();
-            foreach (var item in adatok)
-            {
-                Console.WriteLine(item);
-            }
+            //beolvas();
+            //masodik();
+            
         }
 
         public static void beolvas()
@@ -50,11 +48,58 @@ namespace erettsegi
             sr.Close();
         }
 
+        public static void masodik()
+        {
+            /*
+             - ki kellett gyűjteni azokat a városokat, amiknek a kódja meg van adva
+             - azok közül ki kell venni a legkésőbbit és ki kell írni
+             */
+            Console.WriteLine("\n2.)feladat\n");
+            Console.WriteLine("Adja meg az egyik város kódját:");
+            string kapottKod = Console.ReadLine();
+
+            List<Adat> adatokVarosSzerint = new List<Adat>();
+
+            foreach (Adat item in adatok)
+            {
+                if (item.telepules == kapottKod)
+                {
+                    adatokVarosSzerint.Add(item);
+                }
+            }
+
+            Adat max = adatokVarosSzerint[0];
+
+            foreach (Adat item in adatokVarosSzerint)
+            {
+                if (item.ido > max.ido)
+                {
+                    max = item;
+                }
+            }
+
+            Console.WriteLine($"Az utolsó mérési adat a megadott településről {max.ido.Hours}:{max.ido.Minutes} - kor érkezett.");
+        }
+
         public static TimeSpan convertStringToTimestamp(string szoveg) // 0000
         {
             int ora = int.Parse(szoveg.Substring(0,2));
             int perc = int.Parse(szoveg.Substring(2,2));
             return new TimeSpan(ora, perc, 00);
+        }
+
+        public static void maxKivalasztas()
+        {
+            int[] tomb = { 1, 1234, 3, 4, 2, 6, 67 };
+            int max = 0;
+            for (int i = 0; i < tomb.Length; i++)
+            {
+                if (tomb[i] > max)
+                {
+                    max = tomb[i];
+                }
+            }
+            Console.WriteLine(max);
         }
     }
 }
