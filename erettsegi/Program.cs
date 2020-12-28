@@ -5,20 +5,16 @@ using System.Linq;
 
 namespace erettsegi
 {
-    public class Adat
+    public static class Extensions
     {
-        public string telepules { get; set; }
-        public TimeSpan ido { get; set; }
-        public string szelirany { get; set; }
-        public string szelerosseg { get; set; }
-        public int homerseklet { get; set; }
-
-        public override string ToString()
+        public static void ToConsole<T>(this IEnumerable<T> data)
         {
-            return $"település:{telepules}, idő:{ido.ToString()}, szélirány:{szelirany}, szélerősség:{szelerosseg}, hőmérséklet:{homerseklet}";
+            foreach (var item in data)
+            {
+                Console.Write($"{ item }, ");
+            }
         }
     }
-
     class Program
     {
         public static List<Adat> adatok = new List<Adat>();
@@ -29,13 +25,16 @@ namespace erettsegi
             //TimeSpan otora = new TimeSpan(5, 0, 0);   
             //TimeSpan ketoraa = new TimeSpan(2, 0, 0);
             //Console.WriteLine(otora.Hours);
-            harmadik();
+            // harmadik();
+            // negyedik();
+            //otodik();
+            hatos();
         }
 
         public static void beolvas()
         {
             StreamReader sr = new StreamReader("tavirathu13.txt");
-            while(!sr.EndOfStream)
+            while (!sr.EndOfStream)
             {
                 string[] sor = sr.ReadLine().Split(' ');
                 Adat adat = new Adat()
@@ -93,7 +92,7 @@ namespace erettsegi
             {
                 if (item.homerseklet > max.homerseklet)
                 {
-                    max = item;   
+                    max = item;
                 }
             }
 
@@ -109,6 +108,89 @@ namespace erettsegi
 
             Console.WriteLine($"min: {min}");
             Console.WriteLine($"max: {max}");
+        }
+
+        public static void negyedik()
+        {
+            Console.WriteLine("4. feladat");
+
+            for (int i = 0; i < adatok.Count; i++)
+            {
+                if ((int.Parse(adatok[i].szelerosseg) == 00) && ((int.Parse(adatok[i].szelirany) == 000))) {
+                    Console.WriteLine($"{adatok[i].telepules} {adatok[i].ido}");
+                }
+            }
+        }
+
+        public static void otodik()
+        {
+            List<string> telepulesek = new List<string>();
+            foreach (Adat adat in adatok)
+            {
+                bool tartalmazzaE = telepulesek.Contains(adat.telepules);
+
+                if (!tartalmazzaE)
+                {
+                    telepulesek.Add(adat.telepules);
+                }
+            }
+
+            foreach (string telepules in telepulesek)
+            {
+                List<int> homersekletek = new List<int>();
+                List<int> hours = new List<int>();
+                int minHo = 1000;
+                int maxHo = 0;
+                foreach (Adat adat in adatok)
+                {
+
+                }
+
+                var eredmeny = (hours.Count == 4) ? Math.Round(homersekletek.Average()).ToString() : "Na";
+                Console.WriteLine($"{ telepules } Középhőmérséklet: { eredmeny } Hőmérséklet-ingadozás: {maxHo - minHo}");
+            }
+        }
+
+        public static void hatos()
+        {
+            List<string> telepulesek = new List<string>();
+
+            foreach (Adat adat in adatok)
+            {
+                bool tartalmazzaE = telepulesek.Contains(adat.telepules);
+
+                if (!tartalmazzaE)
+                {
+                    telepulesek.Add(adat.telepules);
+                }
+            }
+
+            foreach (string telepules in telepulesek)
+            {
+                StreamWriter sw = new StreamWriter(telepules + ".txt");
+                sw.WriteLine(telepules);
+                foreach (Adat adat in adatok)
+                {
+                    if (adat.telepules == telepules)
+                    {
+                        int erosseg = int.Parse(adat.szelerosseg);
+
+                        sw.WriteLine($"{adat.ido} {kettoskeresztStringGenerator(erosseg)}");
+                    }
+
+                }
+                sw.Close();
+            }
+        }
+
+        public static string kettoskeresztStringGenerator (int szam) {
+            string kettoskeresztString = "";
+            for (int i = 0; i < szam; i++)
+            {
+                kettoskeresztString = kettoskeresztString + "#";
+                //kettoskeresztString.Append('#');
+            }
+            return kettoskeresztString;
         }
 
         public static TimeSpan convertStringToTimestamp(string szoveg) // 0000
